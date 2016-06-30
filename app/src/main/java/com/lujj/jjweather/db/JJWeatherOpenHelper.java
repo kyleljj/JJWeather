@@ -17,7 +17,7 @@ public class JJWeatherOpenHelper extends SQLiteOpenHelper {
     public static final String CREATE_PROVINCE = "create table Province ("
             + "id integer primary key autoincrement, "
             + "province_name text, "
-            + "province_code text, ";
+            + "province_code text)";
 
     /**
      * City建表语句
@@ -29,10 +29,10 @@ public class JJWeatherOpenHelper extends SQLiteOpenHelper {
             + "city_code text, "
             + "province_id integer)";
 
-    public static final String CREATE_COUNTRY = "create table Country ("
+    public static final String CREATE_COUNTY = "create table County ("
             + "id integer primary key autoincrement, "
-            + "country_name text, "
-            + "country_code text, "
+            + "county_name text, "
+            + "county_code text, "
             + "city_id integer)";
 
     public JJWeatherOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
@@ -43,7 +43,7 @@ public class JJWeatherOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         db.execSQL(CREATE_PROVINCE);
         db.execSQL(CREATE_CITY);
-        db.execSQL(CREATE_COUNTRY);
+        db.execSQL(CREATE_COUNTY);
     }
 
     @Override
